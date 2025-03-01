@@ -14,11 +14,11 @@ use GBNetwork\BukkuIntegration\Services\InvoiceService;
  *
  * @return array
  */
-function bukku_integration_config()
+function bukku_integration_v2_config()
 {
     return [
         'name' => 'Bukku e-Invoice Integration',
-        'description' => 'Integrates WHMCS with Bukku for e-Invoice generation and management',
+        'description' => 'Integrates WHMCS with Bukku for e-Invoice compliance in Malaysia',
         'version' => '1.0',
         'author' => 'GB Network Solutions',
         'fields' => [
