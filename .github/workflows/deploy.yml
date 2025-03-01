@@ -33,6 +33,6 @@ jobs:
           password: ${{ secrets.SFTP_PASSWORD }}
           port: 22
           protocol: ftps  # Changed from sftp to ftps
-          local-dir: ./modules/addons/bukku_integration_v2/
-          server-dir: /home/runcloud/webapps/app-staging/secure/modules/addons/bukku_integration_v2/
+          local_path: './*'
+          remote_path: '/home/runcloud/webapps/app-staging/secure/modules/addons/bukku_integration_v2/'
           dangerous-clean-slate: false
