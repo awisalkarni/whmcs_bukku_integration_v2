@@ -61,7 +61,7 @@ function bukku_integration_v2_config()
  *
  * @return array
  */
-function bukku_integration_activate()
+function bukku_integration_v2_activate()
 {
     // Create necessary database tables
     $migrations = new Migrations();
@@ -85,7 +85,7 @@ function bukku_integration_activate()
  *
  * @return array
  */
-function bukku_integration_deactivate()
+function bukku_integration_v2_deactivate()
 {
     // Option to keep or remove database tables
     return [
@@ -100,7 +100,7 @@ function bukku_integration_deactivate()
  * @param array $vars
  * @return array
  */
-function bukku_integration_upgrade($vars)
+function bukku_integration_v2_upgrade($vars)
 {
     $currentVersion = $vars['version'];
     
@@ -118,7 +118,7 @@ function bukku_integration_upgrade($vars)
  * @param array $vars
  * @return string
  */
-function bukku_integration_output($vars)
+function bukku_integration_v2_output($vars)
 {
     // Get the requested action
     $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : 'overview';
@@ -170,7 +170,7 @@ function bukku_integration_output($vars)
  * @param array $vars
  * @return array
  */
-function bukku_integration_clientarea($vars)
+function bukku_integration_v2_clientarea($vars)
 {
     // Check if this is the e-invoice settings page
     if (isset($_GET['action']) && $_GET['action'] == 'einvoice_settings') {
