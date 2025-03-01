@@ -81,7 +81,7 @@ if (isset($_POST['action'])) {
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary sync-single" data-id="<?php echo $contact->whmcs_id; ?>">Sync</button>
                                     <?php if ($contact->bukku_id): ?>
-                                        <a href="addonmodules.php?module=bukku_integration&action=contact_invoices&contact_id=<?php echo $contact->bukku_id; ?>" class="btn btn-sm btn-info">Invoices</a>
+                                        <a href="addonmodules.php?module=bukku_integration_v2&action=contact_invoices&contact_id=<?php echo $contact->bukku_id; ?>" class="btn btn-sm btn-info">Invoices</a>
                                         <a href="https://<?php echo $vars['company_subdomain']; ?>.bukku.my/contacts/<?php echo $contact->bukku_id; ?>" target="_blank" class="btn btn-sm btn-default">View in Bukku</a>
                                     <?php endif; ?>
                                 </td>
@@ -109,7 +109,7 @@ $(document).ready(function() {
     $('.sync-single').click(function() {
         var clientId = $(this).data('id');
         $.ajax({
-            url: 'addonmodules.php?module=bukku_integration&action=sync_contact',
+            url: 'addonmodules.php?module=bukku_integration_v2&action=sync_contact',
             type: 'POST',
             data: { client_id: clientId },
             dataType: 'json',
