@@ -1,0 +1,13 @@
+{
+    "name": "gbnetwork/bukku-integration",
+    "description": "Bukku e-Invoice Integration for WHMCS",
+    "type": "whmcs-addon",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "GBNetwork\\BukkuIntegration\\": "lib/"
+        }
+    }
+}

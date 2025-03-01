@@ -21,6 +21,7 @@ jobs:
           
       - name: Install dependencies
         run: |
+          cd modules/addons/bukku_integration_v2
           if [ -f "composer.json" ]; then
             composer install --no-dev --optimize-autoloader
           fi
