@@ -1,0 +1,38 @@
+name: Deploy to Staging
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name if different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          extensions: mbstring, intl, gd, xml, zip
+          
+      - name: Install dependencies
+        run: |
+          if [ -f "composer.json" ]; then
+            composer install --no-dev --optimize-autoloader
+          fi
+          
+      - name: Deploy via SFTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: 103.117.20.236
+          username: runcloud
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: 22
+          protocol: sftp
+          local-dir: ./modules/addons/bukku_integration/
+          server-dir: /home/runcloud/webapps/app-staging/secure/modules/addons/bukku_integration/
+          dangerous-clean-slate: false

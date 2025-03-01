@@ -1,0 +1,21 @@
+{
+    "name": "gbnetwork/bukku-integration",
+    "description": "WHMCS module for Bukku e-Invoice integration",
+    "type": "whmcs-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "GB Network Solutions",
+            "email": "domain@gbnetwork.my"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "GBNetwork\\BukkuIntegration\\": "modules/addons/bukku_integration/lib/"
+        }
+    }
+}
