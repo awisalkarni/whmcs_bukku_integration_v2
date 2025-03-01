@@ -16,7 +16,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'  # Updated to PHP 8.1 to meet the requirement
+          php-version: '8.1'
           extensions: mbstring, intl, gd, xml, zip
           
       - name: Install dependencies
@@ -32,7 +32,7 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           port: 22
-          protocol: sftp
+          protocol: ftps  # Changed from sftp to ftps
           local-dir: ./modules/addons/bukku_integration_v2/
           server-dir: /home/runcloud/webapps/app-staging/secure/modules/addons/bukku_integration_v2/
           dangerous-clean-slate: false
