@@ -4,6 +4,18 @@ if (!defined("WHMCS")) {
     die("This file cannot be accessed directly");
 }
 
+// Include autoloader
+$autoloaderPath = __DIR__ . '/vendor/autoload.php';
+if (file_exists($autoloaderPath)) {
+    require_once $autoloaderPath;
+} else {
+    // Fallback to manual class loading if autoloader doesn't exist
+    require_once __DIR__ . '/lib/Database/Migrations.php';
+    require_once __DIR__ . '/lib/Services/ContactService.php';
+    require_once __DIR__ . '/lib/Services/ProductService.php';
+    require_once __DIR__ . '/lib/Services/InvoiceService.php';
+}
+
 use GBNetwork\BukkuIntegration\Database\Migrations;
 use GBNetwork\BukkuIntegration\Services\ContactService;
 use GBNetwork\BukkuIntegration\Services\ProductService;
