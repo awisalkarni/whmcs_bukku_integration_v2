@@ -16,7 +16,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: '8.1'  # Updated to PHP 8.1 to meet the requirement
           extensions: mbstring, intl, gd, xml, zip
           
       - name: Install dependencies
