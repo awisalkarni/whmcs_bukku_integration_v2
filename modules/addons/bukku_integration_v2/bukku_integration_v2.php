@@ -144,6 +144,15 @@ function bukku_integration_v2_output($vars)
             require_once __DIR__ . '/templates/admin/logs.tpl';
             break;
         case 'contacts':
+            // Get contacts from WHMCS and Bukku
+            $contactService = new ContactService();
+            $whmcsContacts = $contactService->getContactsFromWHMCS();
+            $bukkuContacts = $contactService->getContactsFromBukku();
+            
+            // Pass data to template
+            $vars['whmcs_contacts'] = $whmcsContacts;
+            $vars['bukku_contacts'] = $bukkuContacts;
+            
             require_once __DIR__ . '/templates/admin/contacts.tpl';
             break;
         case 'contact_invoices':

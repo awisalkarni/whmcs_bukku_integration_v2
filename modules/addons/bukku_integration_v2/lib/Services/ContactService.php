@@ -17,6 +17,44 @@ class ContactService
     }
     
     /**
+     * Get all contacts from WHMCS
+     *
+     * @return array
+     */
+    public function getContactsFromWHMCS(): array
+    {
+        try {
+            return Client::orderBy('id', 'desc')->get()->toArray();
+        } catch (\Exception $e) {
+            // Log error
+            logActivity("Error fetching WHMCS contacts: " . $e->getMessage());
+            return [];
+        }
+    }
+    
+    /**
+     * Get all contacts from Bukku API
+     *
+     * @return array
+     */
+    public function getContactsFromBukku(): array
+    {
+        try {
+            $result = $this->contactsApi->getAllContacts();
+            
+            if ($result['status'] === 'success') {
+                return $result['contacts'];
+            }
+            
+            return [];
+        } catch (\Exception $e) {
+            // Log error
+            logActivity("Error fetching Bukku contacts: " . $e->getMessage());
+            return [];
+        }
+    }
+    
+    /**
      * Sync all WHMCS clients to Bukku contacts
      *
      * @return array
