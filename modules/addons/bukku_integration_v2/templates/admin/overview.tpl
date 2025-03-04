@@ -72,7 +72,7 @@ $invoiceStats = [
                         </div>
                     </div>
                     <div class="panel-actions">
-                        <a href="addonmodules.php?module=bukku_integration&action=contacts" class="btn btn-default btn-sm">View All</a>
+                        <a href="addonmodules.php?module=bukku_integration_v2&action=contacts" class="btn btn-default btn-sm">View All</a>
                         <button class="btn btn-primary btn-sm sync-all-contacts">Sync All</button>
                     </div>
                 </div>
@@ -100,7 +100,7 @@ $invoiceStats = [
                         </div>
                     </div>
                     <div class="panel-actions">
-                        <a href="addonmodules.php?module=bukku_integration&action=products" class="btn btn-default btn-sm">View All</a>
+                        <a href="addonmodules.php?module=bukku_integration_v2&action=products" class="btn btn-default btn-sm">View All</a>
                         <button class="btn btn-primary btn-sm sync-all-products">Sync All</button>
                     </div>
                 </div>
@@ -128,7 +128,7 @@ $invoiceStats = [
                         </div>
                     </div>
                     <div class="panel-actions">
-                        <a href="addonmodules.php?module=bukku_integration&action=invoices" class="btn btn-default btn-sm">View All</a>
+                        <a href="addonmodules.php?module=bukku_integration_v2&action=invoices" class="btn btn-default btn-sm">View All</a>
                         <button class="btn btn-primary btn-sm sync-all-invoices">Sync All</button>
                     </div>
                 </div>
@@ -172,7 +172,7 @@ $invoiceStats = [
                         </tbody>
                     </table>
                     <div class="text-right">
-                        <a href="addonmodules.php?module=bukku_integration&action=logs" class="btn btn-default btn-sm">View All Logs</a>
+                        <a href="addonmodules.php?module=bukku_integration_v2&action=logs" class="btn btn-default btn-sm">View All Logs</a>
                     </div>
                 </div>
             </div>

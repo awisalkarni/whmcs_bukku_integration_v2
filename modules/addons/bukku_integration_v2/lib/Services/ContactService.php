@@ -190,7 +190,7 @@ class ContactService
     public function getAllSyncedContacts(): array
     {
         try {
-            return Capsule::table('mod_bukku_integration_contacts')
+            return Capsule::table('mod_bukku_integration_v2_contacts')
                 ->orderBy('last_synced', 'desc')
                 ->get()
                 ->toArray();

@@ -15,8 +15,8 @@ class Migrations
     {
         try {
             // Create contacts mapping table
-            if (!Capsule::schema()->hasTable('mod_bukku_integration_contacts')) {
-                Capsule::schema()->create('mod_bukku_integration_contacts', function ($table) {
+            if (!Capsule::schema()->hasTable('mod_bukku_integration_v2_contacts')) {
+                Capsule::schema()->create('mod_bukku_integration_v2_contacts', function ($table) {
                     $table->increments('id');
                     $table->integer('whmcs_id')->unique();
                     $table->integer('bukku_id')->nullable();
@@ -31,8 +31,8 @@ class Migrations
             }
             
             // Create products mapping table
-            if (!Capsule::schema()->hasTable('mod_bukku_integration_products')) {
-                Capsule::schema()->create('mod_bukku_integration_products', function ($table) {
+            if (!Capsule::schema()->hasTable('mod_bukku_integration_v2_products')) {
+                Capsule::schema()->create('mod_bukku_integration_v2_products', function ($table) {
                     $table->increments('id');
                     $table->integer('whmcs_id')->unique();
                     $table->integer('bukku_id')->nullable();
@@ -47,8 +47,8 @@ class Migrations
             }
             
             // Create invoices mapping table
-            if (!Capsule::schema()->hasTable('mod_bukku_integration_invoices')) {
-                Capsule::schema()->create('mod_bukku_integration_invoices', function ($table) {
+            if (!Capsule::schema()->hasTable('mod_bukku_integration_v2_invoices')) {
+                Capsule::schema()->create('mod_bukku_integration_v2_invoices', function ($table) {
                     $table->increments('id');
                     $table->integer('whmcs_id')->unique();
                     $table->integer('bukku_id')->nullable();
@@ -60,8 +60,8 @@ class Migrations
             }
             
             // Create logs table
-            if (!Capsule::schema()->hasTable('mod_bukku_integration_logs')) {
-                Capsule::schema()->create('mod_bukku_integration_logs', function ($table) {
+            if (!Capsule::schema()->hasTable('mod_bukku_integration_v2_logs')) {
+                Capsule::schema()->create('mod_bukku_integration_v2_logs', function ($table) {
                     $table->increments('id');
                     $table->string('level')->default('info');
                     $table->string('message');
@@ -71,8 +71,8 @@ class Migrations
             }
             
             // Create settings table
-            if (!Capsule::schema()->hasTable('mod_bukku_integration_settings')) {
-                Capsule::schema()->create('mod_bukku_integration_settings', function ($table) {
+            if (!Capsule::schema()->hasTable('mod_bukku_integration_v2_settings')) {
+                Capsule::schema()->create('mod_bukku_integration_v2_settings', function ($table) {
                     $table->increments('id');
                     $table->string('key')->unique();
                     $table->text('value')->nullable();
@@ -80,7 +80,7 @@ class Migrations
                 });
                 
                 // Insert default settings
-                Capsule::table('mod_bukku_integration_settings')->insert([
+                Capsule::table('mod_bukku_integration_v2_settings')->insert([
                     ['key' => 'last_contact_sync', 'value' => null],
                     ['key' => 'last_product_sync', 'value' => null],
                     ['key' => 'last_invoice_sync', 'value' => null],
@@ -109,11 +109,11 @@ class Migrations
         try {
             // Drop all tables
             $tables = [
-                'mod_bukku_integration_contacts',
-                'mod_bukku_integration_products',
-                'mod_bukku_integration_invoices',
-                'mod_bukku_integration_logs',
-                'mod_bukku_integration_settings'
+                'mod_bukku_integration_v2_contacts',
+                'mod_bukku_integration_v2_products',
+                'mod_bukku_integration_v2_invoices',
+                'mod_bukku_integration_v2_logs',
+                'mod_bukku_integration_v2_settings'
             ];
             
             foreach ($tables as $table) {
